@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contents",
+  "info": {
+    "singularName": "content",
+    "pluralName": "contents",
+    "displayName": "Content",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uuid": {
+      "type": "uid",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    },
+    "createdDate": {
+      "type": "datetime"
+    },
+    "updateDate": {
+      "type": "datetime"
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "contentData": {
+      "type": "blocks"
+    },
+    "createdBY": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "admin::user"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tags",
+  "info": {
+    "singularName": "tag",
+    "pluralName": "tags",
+    "displayName": "tag",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tagId": {
+      "type": "uid"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "tagUrl": {
+      "type": "string"
+    },
+    "tagColor": {
+      "type": "string"
+    }
+  }
+}
