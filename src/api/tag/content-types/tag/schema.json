@@ -12,16 +12,13 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "tagId": {
-      "type": "uid"
-    },
     "tag": {
       "type": "string"
     },
     "tagUrl": {
       "type": "string"
     },
-    "tagColor": {
+    "tagImageUrl": {
       "type": "string"
     }
   }

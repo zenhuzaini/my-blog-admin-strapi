@@ -715,24 +715,32 @@ export interface ApiContentContent extends Schema.CollectionType {
   info: {
     singularName: 'content';
     pluralName: 'contents';
-    displayName: 'Content';
+    displayName: 'Post';
     description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    uuid: Attribute.UID & Attribute.Required;
     title: Attribute.String;
-    createdDate: Attribute.DateTime;
-    updateDate: Attribute.DateTime;
-    imageUrl: Attribute.String;
-    contentData: Attribute.Blocks;
-    createdBY: Attribute.Relation<
+    komootId: Attribute.String;
+    headerPhoto: Attribute.String;
+    keyword: Attribute.String;
+    description: Attribute.Text;
+    category: Attribute.Relation<
       'api::content.content',
-      'oneToOne',
-      'admin::user'
+      'oneToMany',
+      'api::tag.tag'
     >;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'HTML';
+          preset: 'rich';
+        }
+      >;
+    url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -792,10 +800,9 @@ export interface ApiTagTag extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    tagId: Attribute.UID;
     tag: Attribute.String;
     tagUrl: Attribute.String;
-    tagColor: Attribute.String;
+    tagImageUrl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

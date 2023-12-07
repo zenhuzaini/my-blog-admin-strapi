@@ -4,7 +4,7 @@
   "info": {
     "singularName": "content",
     "pluralName": "contents",
-    "displayName": "Content",
+    "displayName": "Post",
     "description": ""
   },
   "options": {
@@ -12,29 +12,36 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "uuid": {
-      "type": "uid",
-      "required": true
-    },
     "title": {
       "type": "string"
     },
-    "createdDate": {
-      "type": "datetime"
-    },
-    "updateDate": {
-      "type": "datetime"
-    },
-    "imageUrl": {
+    "komootId": {
       "type": "string"
     },
-    "contentData": {
-      "type": "blocks"
+    "headerPhoto": {
+      "type": "string"
     },
-    "createdBY": {
+    "keyword": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
       "type": "relation",
-      "relation": "oneToOne",
-      "target": "admin::user"
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "HTML",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "url": {
+      "type": "string"
     }
   }
 }
