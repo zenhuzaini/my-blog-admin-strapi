@@ -1,4 +1,5 @@
-import { createRandomPosts } from "./faker/fakerData";
+import { createRandomMapCoordinate, createRandomPosts } from "./data/fakerData";
+import { dataInitialization } from "./data/initialization";
 
 export default {
   /**
@@ -17,12 +18,6 @@ export default {
    * run jobs, or perform some special logic.
    */
   async bootstrap({ strapi }) {
-    for (let index = 0; index < 100; index++) {
-      await strapi.entityService.create("api::content.content", {
-        data: {
-          ...createRandomPosts(),
-        },
-      });
-    }
+    await dataInitialization(strapi);
   },
 };

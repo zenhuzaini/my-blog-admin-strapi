@@ -12,28 +12,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "mapId": {
-      "type": "uid"
-    },
     "longitude": {
       "type": "string"
     },
     "latitude": {
       "type": "string"
     },
-    "stravaUrl": {
+    "stravaId": {
       "type": "string"
     },
-    "komootUrl": {
+    "komootId": {
       "type": "string"
-    },
-    "dateCreated": {
-      "type": "datetime"
     },
     "tags": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
+    },
+    "post": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::content.content"
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
