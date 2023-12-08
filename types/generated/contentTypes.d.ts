@@ -771,13 +771,17 @@ export interface ApiMapMap extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    mapId: Attribute.UID;
     longitude: Attribute.String;
     latitude: Attribute.String;
-    stravaUrl: Attribute.String;
-    komootUrl: Attribute.String;
-    dateCreated: Attribute.DateTime;
+    stravaId: Attribute.String;
+    komootId: Attribute.String;
     tags: Attribute.Relation<'api::map.map', 'oneToMany', 'api::tag.tag'>;
+    post: Attribute.Relation<
+      'api::map.map',
+      'oneToOne',
+      'api::content.content'
+    >;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
